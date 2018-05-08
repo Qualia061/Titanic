@@ -17,17 +17,21 @@ from sklearn.linear_model import Perceptron
 from sklearn.linear_model import SGDClassifier
 from sklearn.tree import DecisionTreeClassifier
 
-train_df = pd.read_csv('E:/Python Github/Datasets/Titanic/train.csv')
-test_df = pd.read_csv('E:/Python Github/Datasets/Titanic/test.csv')
-combine = [train_df, test_df]
+train = pd.read_csv('E:/Python Github/Datasets/Titanic/train.csv')
+test = pd.read_csv('E:/Python Github/Datasets/Titanic/test.csv')
+full_data = [train, test]
 
-print(train_df.columns.values)
-train_df.head()
+print(train.columns.values)
+train.head()
 
-train_df.info()
+train.info()
 print('_'*40)
-test_df.info()
+test.info()
 
-train_df.describe()
-train_df.describe(include=['O'])
+train.describe()
+train.describe(include=['O'])
 
+sns.barplot(x="Embarked", y="Survived", hue="Sex", data=train)
+
+for dataset in full_data:# Mapping Gender
+    dataset['Sex'] = dataset['Sex'].map( {'female': 0, 'male': 1} ).astype(int)   
