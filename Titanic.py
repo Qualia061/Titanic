@@ -55,9 +55,8 @@ full.drop('Pclass',axis=1,inplace=True)
 full.head()
 
 def getTitle(name):
-    str1=name.split( ',' )[1] #Mr. Owen Harris
-    str2=str1.split( '.' )[0]#Mr
-    #strip() 方法用于移除字符串头尾指定的字符（默认为空格）
+    str1=name.split( ',' )[1] 
+    str2=str1.split( '.' )[0]
     str3=str2.strip()
     return str3
 
